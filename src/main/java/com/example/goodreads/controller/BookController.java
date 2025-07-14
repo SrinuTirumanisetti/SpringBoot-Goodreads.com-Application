@@ -30,7 +30,7 @@ class BookController {
         return bookService.getBookById(bookId);
     }
 
-    @PostMapping("/books")
+    @PostMapping("/publisher/books")
     public Book addBook(@RequestBody Book book) {
         return bookService.addBook(book);
     }
