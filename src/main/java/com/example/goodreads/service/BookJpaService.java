@@ -1,6 +1,7 @@
 package com.example.goodreads.service;
 
 import com.example.goodreads.model.Book;
+import com.example.goodreads.model.Publisher;
 import com.example.goodreads.repository.BookJpaRepository;
 import com.example.goodreads.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,16 @@ public class BookJpaService implements BookRepository {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+    }
+
+    @Override
+    public Publisher getBookPublisher(int bookId){
+        try{
+            Book book = bookJpaRepository.findById(bookId).get();
+            return book.getPublisher();
+        }
+        catch(Exception e){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
     }
 }

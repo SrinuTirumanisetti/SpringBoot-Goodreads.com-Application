@@ -47,6 +47,6 @@ class BookController {
 
     @GetMapping("/books/{bookId}/publisher")
     public Publisher getBookPublisher(@PathVariable("bookId") int bookId){
-        return  null;
+        return  bookService.getBookPublisher(bookId);
     }
 }
