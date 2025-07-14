@@ -17,6 +17,9 @@ public class Book {
 
     @Column(name = "imageurl")
     private String imageUrl;
+
+    @ManyToOne
+    @JoinColumn(name="publisherid")
     private Publisher publisher;
 
     public Book() {
